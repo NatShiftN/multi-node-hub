@@ -1,0 +1,43 @@
+# Build output
+/bin/
+/.bin/
+/dist/
+*.exe
+*.exe~
+*.test
+*.out
+
+# Go workspaces / vendoring
+/vendor/
+go.work
+go.work.sum
+
+# Frontend
+/web/node_modules/
+/web/dist/
+/web/*.tsbuildinfo
+.pnpm-store/
+
+# SQLite runtime state
+*.db
+*.db-shm
+*.db-wal
+
+# Local Xray data (when --xray-dir points into the repo)
+/xray-data/
+*.log
+
+# Let's Encrypt / autocert cache
+/certcache/
+
+# Local configuration and secrets
+.env
+.env.*
+!.env.example
+web/.env
+
+# Editor / OS
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db

@@ -1,0 +1,93 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    color-scheme: dark;
+    font-synthesis: none;
+    text-rendering: optimizeLegibility;
+  }
+
+  html {
+    @apply bg-[#05070c];
+  }
+
+  body {
+    @apply m-0 min-w-[320px] bg-[#05070c] font-sans text-slate-200 antialiased;
+    background-image:
+      radial-gradient(ellipse 70% 45% at 50% -15%, rgba(16, 185, 129, 0.12), transparent 65%),
+      radial-gradient(ellipse 40% 35% at 100% 10%, rgba(56, 189, 248, 0.06), transparent 70%);
+  }
+
+  button {
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  ::selection {
+    @apply bg-emerald-400/25 text-white;
+  }
+
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: #334155 transparent;
+  }
+}
+
+@layer components {
+  .panel {
+    @apply rounded-2xl border border-white/[0.07] bg-[#0a0f18]/90 shadow-panel backdrop-blur-sm;
+  }
+
+  .label {
+    @apply text-[10px] font-semibold uppercase tracking-[0.2em] text-slate-500;
+  }
+
+  .focus-ring {
+    @apply outline-none ring-emerald-400/60 ring-offset-2 ring-offset-[#05070c] focus-visible:ring-2;
+  }
+
+  .login-aurora {
+    @apply pointer-events-none absolute inset-0;
+    background:
+      radial-gradient(circle at 28% 22%, rgba(16, 185, 129, 0.18), transparent 34%),
+      radial-gradient(circle at 74% 70%, rgba(56, 189, 248, 0.1), transparent 38%),
+      radial-gradient(circle at 50% 110%, rgba(139, 92, 246, 0.08), transparent 44%);
+    filter: blur(12px);
+  }
+
+  .login-grid {
+    @apply pointer-events-none absolute inset-0 opacity-[0.35];
+    background-image:
+      linear-gradient(to right, rgba(148, 163, 184, 0.055) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(148, 163, 184, 0.045) 1px, transparent 1px);
+    background-size: 64px 64px;
+    mask-image: radial-gradient(ellipse 65% 55% at 50% 42%, black, transparent 78%);
+  }
+
+  .animate-fade-in {
+    animation: fadeIn 0.45s ease-out both;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
