@@ -1,0 +1,19 @@
+services:
+  nodehub:
+    build: .
+    image: nodehub:local
+    container_name: nodehub
+    restart: unless-stopped
+    ports:
+      - "8080:8080"
+    env_file:
+      - .env
+    environment:
+      NODEHUB_DB: /data/nodehub.db
+      NODEHUB_WEB_DIR: /app/web
+      NODEHUB_BACKUP_DIR: /data/backups
+    volumes:
+      - nodehub-data:/data
+
+volumes:
+  nodehub-data:
