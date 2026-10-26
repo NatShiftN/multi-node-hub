@@ -70,8 +70,18 @@ The demo is **read-only**, with three virtual nodes, simulated traffic and sampl
 
 Requirements: Linux, Docker, Docker Compose v2.
 
+Linux / macOS:
+
 ```sh
 git clone https://github.com/NatShiftN/multi-node-hub.git && cd multi-node-hub && ./install.sh
+```
+
+Windows (PowerShell, Docker Desktop):
+
+```powershell
+git clone https://github.com/NatShiftN/multi-node-hub.git
+cd multi-node-hub
+.\install.ps1
 ```
 
 The installer:

@@ -1,0 +1,16 @@
+.git
+.github
+bin
+release
+backups
+certcache
+docs
+web/node_modules
+web/dist
+web/.vite
+*.db
+*.db-shm
+*.db-wal
+.env
+.env.*
+!.env.example
