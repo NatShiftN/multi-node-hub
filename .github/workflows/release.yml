@@ -47,12 +47,12 @@ jobs:
         run: |
           set -euo pipefail
           mkdir -p dist
-          LDFLAGS="-s -w -buildvcs=false -X main.version=${VERSION}"
-          CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build -trimpath -ldflags "$LDFLAGS" -o dist/nodehub-server-linux-amd64 ./server
-          CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build -trimpath -ldflags "$LDFLAGS" -o dist/nodehub-agent-linux-amd64 ./agent
-          CGO_ENABLED=0 GOOS=linux GOARCH=arm64 go build -trimpath -ldflags "$LDFLAGS" -o dist/nodehub-agent-linux-arm64 ./agent
-          CGO_ENABLED=0 GOOS=windows GOARCH=amd64 go build -trimpath -ldflags "$LDFLAGS" -o dist/nodehub-server-windows-amd64.exe ./server
-          CGO_ENABLED=0 GOOS=windows GOARCH=amd64 go build -trimpath -ldflags "$LDFLAGS" -o dist/nodehub-agent-windows-amd64.exe ./agent
+          LDFLAGS="-s -w -X main.version=${VERSION}"
+          CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build -trimpath -buildvcs=false -ldflags "$LDFLAGS" -o dist/nodehub-server-linux-amd64 ./server
+          CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build -trimpath -buildvcs=false -ldflags "$LDFLAGS" -o dist/nodehub-agent-linux-amd64 ./agent
+          CGO_ENABLED=0 GOOS=linux GOARCH=arm64 go build -trimpath -buildvcs=false -ldflags "$LDFLAGS" -o dist/nodehub-agent-linux-arm64 ./agent
+          CGO_ENABLED=0 GOOS=windows GOARCH=amd64 go build -trimpath -buildvcs=false -ldflags "$LDFLAGS" -o dist/nodehub-server-windows-amd64.exe ./server
+          CGO_ENABLED=0 GOOS=windows GOARCH=amd64 go build -trimpath -buildvcs=false -ldflags "$LDFLAGS" -o dist/nodehub-agent-windows-amd64.exe ./agent
 
       - name: Build frontend
         shell: bash
