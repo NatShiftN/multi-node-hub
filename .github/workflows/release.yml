@@ -58,8 +58,11 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-          pnpm --dir web install --frozen-lockfile
-          pnpm --dir web build
+          (
+            cd web
+            pnpm install --frozen-lockfile
+            pnpm build
+          )
           tar -C web/dist -czf dist/nodehub-web.tar.gz .
 
       - name: Checksums
